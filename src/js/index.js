@@ -1,4 +1,4 @@
-import Developer from './classes/Developer';
+import {Developer} from './classes/Developer';
 
 var frontEndDeveloper,
 
