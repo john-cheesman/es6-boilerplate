@@ -1,9 +1,21 @@
 module.exports = {
     scripts: {
-        entry: './src/js/index.js',
         src: './src/js/**/*.js',
-        dest: './web/js',
-        fileName: 'scripts.js'
+        browserify: {
+            debug: true
+        },
+        bundleConfigs: [
+            {
+                entry: './src/js/index.js',
+                dest: './web/js',
+                fileName: 'scripts.js'
+            },
+            {
+                entry: './test/unit-test-specs.js',
+                dest: './test',
+                fileName: 'unit-tests.js'
+            }
+        ]
     },
     clean: {
         paths: [
@@ -14,5 +26,8 @@ module.exports = {
         server: {
             baseDir: './web'
         }
+    },
+    unitTests: {
+        src: './test/unit-tests.js'
     }
 };

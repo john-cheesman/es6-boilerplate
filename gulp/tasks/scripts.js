@@ -11,15 +11,15 @@ source     = require('vinyl-source-stream');
 config     = require('../config').scripts;
 
 gulp.task('scripts', function() {
-    browserify(config.browserify)
-        .transform(babelify)
-        .require(
-            config.entry,
-            {
-                entry: true
-            }
-        )
-        .bundle()
-        .pipe(source(config.fileName))
-        .pipe(gulp.dest(config.dest));
+    function browserifyThis(bundleConfig) {
+        return browserify({
+            debug: config.browserify.debug,
+            entries: bundleConfig.entry
+        })
+            .bundle()
+            .pipe(source(bundleConfig.fileName))
+            .pipe(gulp.dest(bundleConfig.dest));
+    }
+
+    config.bundleConfigs.forEach(browserifyThis);
 });
