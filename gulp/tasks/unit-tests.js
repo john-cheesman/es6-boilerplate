@@ -11,6 +11,6 @@ config    = require('../config').unitTests;
 gulp.task('unit-tests', function() {
     gulp.src(config.src)
         .pipe(jasmine({
-            reporter: new reporters.TerminalReporter()
+            reporter: new reporters.TerminalReporter(config.reporter)
         }));
 });

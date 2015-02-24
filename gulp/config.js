@@ -19,7 +19,8 @@ module.exports = {
     },
     clean: {
         paths: [
-            './web/js'
+            './web/js',
+            './tests/units-tests.js'
         ]
     },
     browserSync: {
@@ -28,6 +29,9 @@ module.exports = {
         }
     },
     unitTests: {
-        src: './test/unit-tests.js'
+        src: './test/unit-tests.js',
+        reporter: {
+            verbosity: 3
+        }
     }
 };

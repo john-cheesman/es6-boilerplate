@@ -2,16 +2,16 @@ import {Developer} from './classes/Developer';
 
 var frontEndDeveloper,
 
-frontEndDeveloper = new Developer(
-    'John Cheesman',
-    '26/03/1988',
-    [
+frontEndDeveloper = new Developer({
+    name: 'John Cheesman',
+    dob: '26/03/1988',
+    skills: [
         'html',
         'css',
         'js'
     ],
-    'john-cheesman',
-    'blues_driven'
-);
+    github: 'john-cheesman',
+    twitter: 'blues_driven'
+});
 
 frontEndDeveloper.render('.js-developer');

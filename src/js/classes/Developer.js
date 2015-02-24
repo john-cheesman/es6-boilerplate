@@ -1,24 +1,26 @@
 import {Person} from './Person';
 
 export class Developer extends Person {
-    constructor(name, dob, skills, github, twitter) {
-        super(name, dob);
+    constructor(properties) {
+        super({
+            name: properties.name,
+            dob: properties.dob
+        });
 
-        this.skills  = skills;
-        this.github  = github;
-        this.twitter = twitter;
+        this.skills  = properties.skills;
+        this.github  = properties.github;
+        this.twitter = properties.twitter;
     }
 
     render(element) {
-        var i,
-            skills,
+        var skills,
             template;
 
         skills = '';
 
-        for (i=0; i<this.skills.length; i++) {
-            skills += `<dd>${this.skills[i]}</dd>`
-        }
+        this.skills.forEach(function(skill) {
+            skills += `<dd>${skill}</dd>`;
+        });
 
         template =
             `<h1>${this.name}</h1>` +

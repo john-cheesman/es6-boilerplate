@@ -1,6 +1,6 @@
 export class Person {
-    constructor(name, dob) {
-        this.name   = name;
-        this.dob    = dob;
+    constructor(properties) {
+        this.name = properties.name;
+        this.dob  = properties.dob;
     }
 }
