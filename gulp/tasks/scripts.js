@@ -13,10 +13,12 @@ config     = require('../config').scripts;
 gulp.task('scripts', ['clean-scripts'], function() {
     var browserifyThis;
 
-    browserifyThis = transform(function() {
-        return browserify(config.browserify)
+    browserifyThis = transform(function(filename) {
+        return browserify(filename, config.browserify)
             .bundle();
     });
+
+    console.log(browserifyThis);
 
     return gulp.src(config.src)
         .pipe(browserifyThis)
