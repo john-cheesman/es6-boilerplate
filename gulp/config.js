@@ -3,9 +3,6 @@ module.exports = {
         watch: './src/js/**/*.js',
         src: './src/js/index.js',
         dest: './web/js',
-        browserify: {
-            debug: true
-        },
         outputName: 'scripts.js'
     },
     clean: {
