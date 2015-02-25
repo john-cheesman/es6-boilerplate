@@ -1,37 +1,29 @@
 module.exports = {
     scripts: {
-        src: './src/js/**/*.js',
+        watch: './src/js/**/*.js',
+        src: './src/js/index.js',
+        dest: './web/js',
         browserify: {
             debug: true
         },
-        bundleConfigs: [
-            {
-                entry: './src/js/index.js',
-                dest: './web/js',
-                fileName: 'scripts.js'
-            },
-            {
-                entry: './test/unit-test-specs.js',
-                dest: './test',
-                fileName: 'unit-tests.js'
-            }
-        ]
+        outputName: 'scripts.js'
     },
     clean: {
-        paths: [
-            './web/js',
-            './tests/units-tests.js'
-        ]
+        scripts: './web/js',
+        spec: './spec/spec-tests.js'
     },
     browserSync: {
         server: {
             baseDir: './web'
         }
     },
-    unitTests: {
-        src: './test/unit-tests.js',
+    spec: {
+        watch: './spec/**/*.js',
+        src: './spec/spec.js',
+        dest: './spec',
         reporter: {
             verbosity: 3
-        }
+        },
+        outputName: 'spec-tests.js'
     }
 };

@@ -1,25 +1,25 @@
 var gulp,
     browserify,
-    babelify,
-    source,
+    transform,
+    rename,
     config;
 
 gulp       = require('gulp');
 browserify = require('browserify');
-babelify   = require('babelify');
-source     = require('vinyl-source-stream');
+transform  = require('vinyl-transform');
+rename     = require('gulp-rename');
 config     = require('../config').scripts;
 
-gulp.task('scripts', function() {
-    function browserifyThis(bundleConfig) {
-        return browserify({
-            debug: config.browserify.debug,
-            entries: bundleConfig.entry
-        })
-            .bundle()
-            .pipe(source(bundleConfig.fileName))
-            .pipe(gulp.dest(bundleConfig.dest));
-    }
+gulp.task('scripts', ['clean-scripts'], function() {
+    var browserifyThis;
 
-    config.bundleConfigs.forEach(browserifyThis);
+    browserifyThis = transform(function() {
+        return browserify(config.browserify)
+            .bundle();
+    });
+
+    return gulp.src(config.src)
+        .pipe(browserifyThis)
+        .pipe(rename(config.outputName))
+        .pipe(gulp.dest(config.dest));
 });

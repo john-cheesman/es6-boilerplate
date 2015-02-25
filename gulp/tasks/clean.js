@@ -6,6 +6,12 @@ gulp   = require('gulp');
 del    = require('del');
 config = require('../config').clean;
 
-gulp.task('clean', function() {
-    del(config.paths);
+gulp.task('clean-scripts', function(cb) {
+    del(config.scripts, cb);
 });
+
+gulp.task('clean-spec', function(cb) {
+    del(config.spec, cb);
+});
+
+

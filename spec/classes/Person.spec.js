@@ -1,4 +1,4 @@
-import {Person} from './Person';
+import {Person} from '../../src/js/classes/Person';
 
 export function PersonSpec() {
     describe('Person', () => {

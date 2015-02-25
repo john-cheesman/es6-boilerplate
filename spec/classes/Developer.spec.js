@@ -1,4 +1,4 @@
-import {Developer} from './Developer';
+import {Developer} from '../../src/js/classes/Developer';
 
 export function DeveloperSpec() {
     describe('Developer', () => {
