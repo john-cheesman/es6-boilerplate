@@ -1,6 +1,6 @@
 {
   "name": "es6-boilerplate",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A starting point for using ES6 with [Gulp](http://gulpjs.com/), [Browserify](http://browserify.org/) and [Babel](http://babeljs.io/).",
   "repository": {
     "type": "git",
