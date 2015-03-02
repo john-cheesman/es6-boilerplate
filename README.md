@@ -22,7 +22,7 @@ Install dependencies:
 $ npm install
 ```
 
-Build assets and launch in browser:
+Build assets, run tests and launch in browser:
 
 ```
 $ gulp
