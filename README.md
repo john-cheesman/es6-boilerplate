@@ -4,7 +4,7 @@ A starting point for using ES6 with [Gulp](http://gulpjs.com/), [Browserify](htt
 
 ## Setup
 
-Install Node and npm:
+Install Node and npm with [Homebrew](http://brew.sh/):
 
 ```
 $ brew install node
