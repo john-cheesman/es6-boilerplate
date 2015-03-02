@@ -1,6 +1,6 @@
 import {Developer} from './classes/Developer';
 
-var frontEndDeveloper,
+let frontEndDeveloper;
 
 frontEndDeveloper = new Developer({
     name: 'John Cheesman',

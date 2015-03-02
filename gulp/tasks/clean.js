@@ -13,5 +13,3 @@ gulp.task('clean-scripts', function(cb) {
 gulp.task('clean-spec', function(cb) {
     del(config.spec, cb);
 });
-
-

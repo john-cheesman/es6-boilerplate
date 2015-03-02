@@ -13,7 +13,7 @@ export class Developer extends Person {
     }
 
     render(element) {
-        var skills,
+        let skills,
             template;
 
         skills = '';
