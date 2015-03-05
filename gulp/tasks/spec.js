@@ -1,6 +1,7 @@
 var gulp,
     browserify,
     transform,
+    babelify,
     rename,
     jasmine,
     reporters,
@@ -9,6 +10,7 @@ var gulp,
 gulp       = require('gulp');
 browserify = require('browserify');
 transform  = require('vinyl-transform');
+babelify   = require('babelify');
 rename     = require('gulp-rename');
 jasmine    = require('gulp-jasmine');
 reporters  = require('jasmine-reporters');
@@ -19,6 +21,10 @@ gulp.task('spec', ['clean-spec'], function() {
 
     browserifyThis = transform(function(fileName) {
         return browserify(fileName)
+            .transform(babelify
+                .configure({
+                    ignore: 'node_modules'
+                }))
             .bundle();
     });
 

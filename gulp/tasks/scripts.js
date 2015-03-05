@@ -1,6 +1,7 @@
 var gulp,
     browserify,
     transform,
+    babelify,
     uglify,
     rename,
     config;
@@ -8,6 +9,7 @@ var gulp,
 gulp       = require('gulp');
 browserify = require('browserify');
 transform  = require('vinyl-transform');
+babelify   = require('babelify');
 uglify     = require('gulp-uglify');
 rename     = require('gulp-rename');
 config     = require('../config').scripts;
@@ -17,6 +19,10 @@ gulp.task('scripts', ['clean-scripts'], function() {
 
     browserifyThis = transform(function(filename) {
         return browserify(filename)
+            .transform(babelify
+                .configure({
+                    ignore: 'node_modules'
+                }))
             .bundle();
     });
 
